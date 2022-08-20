@@ -6,7 +6,7 @@ import {
   Navigate
 } from 'react-router-dom'
 import Home from './component/Home'
-import Registro from './component/Registro'
+import Log from './component/Log'
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Navigate to="/home"/>}/>
           <Route path='/home' exact element={<Home/>}/>
-          <Route path='/registro' exact element={<Registro/>}/>
+          <Route path='/log' exact element={<Log/>}/>
         </Routes>
       </Router>
     </div>

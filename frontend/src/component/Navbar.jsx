@@ -15,14 +15,12 @@ function Navbar(props) {
           <Menu.Item
             name='home'
             active={activeItem === 'home'}
-            onClick={() => setItem('home')}
             href='/home'
           />
           <Menu.Item
-            name='registro'
-            active={activeItem === 'registro'}
-            onClick={() => setItem('registro')}
-            href='/registro'
+            name='log'
+            active={activeItem === 'log'}
+            href='/log'
           />
         </Menu>
     </Segment>
