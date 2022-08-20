@@ -6,14 +6,12 @@ import {
   Navigate
 } from 'react-router-dom'
 import Home from './component/Home'
-import Navbar from './component/Navbar'
 import Registro from './component/Registro'
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar/>
       <Router>
         <Routes>
           <Route path='/' exact element={<Navigate to="/home"/>}/>

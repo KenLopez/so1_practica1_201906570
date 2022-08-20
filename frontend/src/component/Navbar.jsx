@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react';;
 import {Segment, Menu} from 'semantic-ui-react';
 
-function Navbar() {
+function Navbar(props) {
   const [activeItem, setActiveItem] = useState('home')
   
   useEffect(() => {
-    const item = localStorage.getItem('item');
-    if(item){
-      setActiveItem(item);
-    }
+    setActiveItem(props.item);
   }, [])
-
-  function setItem(item) {
-    localStorage.setItem('item', item);
-  }
   
 
   return (
