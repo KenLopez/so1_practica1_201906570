@@ -29,7 +29,5 @@ services:
     image: kennethlopez21/frontend_p1_201906570
     ports:
       - "4200:4200"
-    links:
-      - backend
   
   

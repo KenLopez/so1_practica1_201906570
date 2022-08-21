@@ -18,7 +18,12 @@ function Home() {
     
     const getData = () => {
         const get = async () => {
-            let res = await axios.get('http://localhost:3000/vehicle')
+            let res = await axios.get('http://localhost:3000/vehicle', {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                }
+            })
             const data = res.data
             setVehicles(data)
             setDisplay(data)
@@ -76,7 +81,14 @@ function Home() {
 
     const submitEdit = (data) => {
         const editar = async () =>{
-          await axios.put('http://localhost:3000/vehicle', data)
+          await axios.put(
+                'http://localhost:3000/vehicle', data, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                }
+            }
+          )
           getData()
           setOpenEdit(false)
         }
@@ -85,7 +97,14 @@ function Home() {
 
     const submitRegister = (data) => {
         const registrar = async () =>{
-          await axios.post('http://localhost:3000/vehicle', data)
+            await axios.post(
+                'http://localhost:3000/vehicle', data, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                }
+            }
+          )          
           getData()
           setOpenRegister(false)
         }
@@ -94,7 +113,12 @@ function Home() {
 
     const remove = () => {
         const borrar = async () => {
-            await axios.delete(`http://localhost:3000/vehicle/${selected.ID}`)
+            await axios.delete(`http://localhost:3000/vehicle/${selected.ID}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                }
+            })
             getData()
             setOpenDelete(false)
         }

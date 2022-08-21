@@ -8,7 +8,12 @@ function Log() {
   const [log, setLog] = useState([])
   useEffect(() => {
     const get = async () => {
-        let res = await axios.get('http://localhost:3000/log')
+        let res = await axios.get('http://localhost:3000/log', {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            }
+        })
         const data = res.data
         setLog(data)
     }
