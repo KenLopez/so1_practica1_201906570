@@ -144,7 +144,7 @@ func getLog(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Println("Listening on port 3000...")
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	client, _ = mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	client, _ = mongo.Connect(ctx, options.Client().ApplyURI("mongodb://database:27017"))
 
 	router := mux.NewRouter()
 

@@ -1,16 +1,18 @@
+import React from 'react';
 import { useState } from "react"
 import { Button, Form } from "semantic-ui-react"
 
 function Formulario(props) {
-    const [placa, setPlaca] = useState(props.data?.placa || '')
-    const [marca, setMarca] = useState(props.data?.marca || '')
-    const [modelo, setModelo] = useState(props.data?.modelo || '')
-    const [serie, setSerie] = useState(props.data?.serie || '')
-    const [color, setColor] = useState(props.data?.color || '')
+
+    const [placa, setPlaca] = useState(props.data ? props.data.placa : '')
+    const [marca, setMarca] = useState(props.data ? props.data.marca : '')
+    const [modelo, setModelo] = useState(props.data ? props.data.modelo : '')
+    const [serie, setSerie] = useState(props.data ? props.data.serie : '')
+    const [color, setColor] = useState(props.data ? props.data.color : '')
 
     const submit = () => {
         const data = {
-            ID: props.data?.ID || null,
+            ID: props.data ? props.data.ID : null,
             placa: placa,
             marca: marca,
             modelo: modelo,
@@ -19,7 +21,6 @@ function Formulario(props) {
         }
         props.submit(data)
     }
-
 
     return (
         <Form onSubmit={() => submit()}>

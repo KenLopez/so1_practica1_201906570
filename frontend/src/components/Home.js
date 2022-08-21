@@ -1,5 +1,6 @@
+import React from 'react';
 import { useEffect, useState } from "react";
-import { Button, Confirm, Container, Form, Header, Icon, Modal, Table } from "semantic-ui-react"
+import { Button, Confirm, Form, Header, Icon, Modal, Table } from "semantic-ui-react"
 import Navbar from "./Navbar";
 import axios from "axios";
 import Formulario from "./Formulario";
@@ -17,7 +18,7 @@ function Home() {
     
     const getData = () => {
         const get = async () => {
-            let res = await axios.get('http://localhost:3000/vehicle')
+            let res = await axios.get('http://backend:3000/vehicle')
             const data = res.data
             setVehicles(data)
             setDisplay(data)
@@ -41,7 +42,7 @@ function Home() {
         let filtered = []
         Object.assign(filtered, vehicles)
         set(value)
-        if(set == setMarca){
+        if(set === setMarca){
             if(value){
                 filtered = filtered.filter(item => item.marca.toUpperCase().includes(value.toUpperCase()))
             }
@@ -51,7 +52,7 @@ function Home() {
             }
         }
         
-        if(set == setModelo){
+        if(set === setModelo){
             if(value){
                 filtered = filtered.filter(item => item.modelo.toUpperCase().includes(value.toUpperCase()))
             }
@@ -61,7 +62,7 @@ function Home() {
             }
         }
 
-        if(set == setColor){
+        if(set === setColor){
             if(value){
                 filtered = filtered.filter(item => item.color.toUpperCase().includes(value.toUpperCase()))
             }
@@ -75,7 +76,7 @@ function Home() {
 
     const submitEdit = (data) => {
         const editar = async () =>{
-          await axios.put('http://localhost:3000/vehicle', data)
+          await axios.put('http://backend:3000/vehicle', data)
           getData()
           setOpenEdit(false)
         }
@@ -84,7 +85,7 @@ function Home() {
 
     const submitRegister = (data) => {
         const registrar = async () =>{
-          await axios.post('http://localhost:3000/vehicle', data)
+          await axios.post('http://backend:3000/vehicle', data)
           getData()
           setOpenRegister(false)
         }
@@ -93,7 +94,7 @@ function Home() {
 
     const remove = () => {
         const borrar = async () => {
-            await axios.delete(`http://localhost:3000/vehicle/${selected.ID}`)
+            await axios.delete(`http://backend:3000/vehicle/${selected.ID}`)
             getData()
             setOpenDelete(false)
         }
@@ -101,7 +102,7 @@ function Home() {
     }
 
     return (
-        <>
+        <div>
             <Navbar item='home'/>
             <div className="content">
                 <div className="ui segment mosaico container">
@@ -232,7 +233,7 @@ function Home() {
                 cancelButton="Cancelar"
                 confirmButton="Eliminar"
             />
-        </>
+        </div>
     )
 }
 
