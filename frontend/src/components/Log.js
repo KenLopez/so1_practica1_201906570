@@ -8,7 +8,7 @@ function Log() {
   const [log, setLog] = useState([])
   useEffect(() => {
     const get = async () => {
-        let res = await axios.get('http://backend:3000/log')
+        let res = await axios.get('http://localhost:3000/log')
         const data = res.data
         setLog(data)
     }

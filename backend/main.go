@@ -156,11 +156,7 @@ func main() {
 
 	router.HandleFunc("/log", getLog).Methods("GET")
 
-	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"*"},
-		AllowCredentials: true,
-		AllowedMethods:   []string{"POST", "GET", "DELETE", "PUT"},
-	})
+	c := cors.AllowAll()
 
 	handler := c.Handler(router)
 
