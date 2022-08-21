@@ -18,7 +18,7 @@ function Home() {
     
     const getData = () => {
         const get = async () => {
-            let res = await axios.get('http://localhost:3000/vehicle')
+            let res = await axios.get('http://backend:3000/vehicle')
             const data = res.data
             setVehicles(data)
             setDisplay(data)
@@ -76,7 +76,7 @@ function Home() {
 
     const submitEdit = (data) => {
         const editar = async () =>{
-          await axios.put('http://localhost:3000/vehicle', data)
+          await axios.put('http://backend:3000/vehicle', data)
           getData()
           setOpenEdit(false)
         }
@@ -85,7 +85,7 @@ function Home() {
 
     const submitRegister = (data) => {
         const registrar = async () =>{
-          await axios.post('http://localhost:3000/vehicle', data)
+          await axios.post('http://backend:3000/vehicle', data)
           getData()
           setOpenRegister(false)
         }
@@ -94,7 +94,7 @@ function Home() {
 
     const remove = () => {
         const borrar = async () => {
-            await axios.delete(`http://localhost:3000/vehicle/${selected.ID}`)
+            await axios.delete(`http://backend:3000/vehicle/${selected.ID}`)
             getData()
             setOpenDelete(false)
         }
